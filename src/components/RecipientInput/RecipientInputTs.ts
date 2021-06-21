@@ -76,7 +76,7 @@ export class RecipientInputTs extends Vue {
     }
 
     public set rawValue(input: string) {
-        this.$emit('input', input);
+        this.$emit('input', input.replace(/-/g, "").trim());
     }
     /// end-region computed properties getter/setter
 
