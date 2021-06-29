@@ -41,7 +41,7 @@ export const createValidationRuleSet = ({
         mosaicId: 'required|mosaicId',
         message: `maxMessage:${maxMessageSize}`,
         namespaceDuration: `required|min_value:${
-            minNamespaceDuration / networkConfig[NetworkType.TEST_NET].networkConfigurationDefaults.blockGenerationTargetTime
+            minNamespaceDuration / networkConfig[NetworkType.MAIN_NET].networkConfigurationDefaults.blockGenerationTargetTime
         }|maxNamespaceDuration`,
         namespaceName: {
             required: true,
@@ -72,4 +72,4 @@ export const createValidationRuleSet = ({
 
 // TODO ValidationRuleset needs to be created when the network configuration is resolved, UI needs
 // to use the resolved ValidationResulset ATM rules are using the hardocded ones
-export const ValidationRuleset = createValidationRuleSet(networkConfig[NetworkType.TEST_NET].networkConfigurationDefaults);
+export const ValidationRuleset = createValidationRuleSet(networkConfig[NetworkType.MAIN_NET].networkConfigurationDefaults);

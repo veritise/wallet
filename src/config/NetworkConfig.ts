@@ -50,40 +50,42 @@ export interface NetworkConfig {
     networkConfigurationDefaults: NetworkConfigurationDefaults;
 }
 
-export const defaultTestnetNetworkConfig: NetworkConfig = {
-    explorerUrl: 'http://explorer.veritise.net/',
-    faucetUrl: 'http://faucet.veritise.net/',
-    defaultNetworkType: 152,
+export const defaultMainnetNetworkConfig: NetworkConfig = {
+    explorerUrl: 'http://20.79.89.9/',
+    faucetUrl: 'http://20.79.115.0/',
+    defaultNetworkType: 104,
     networkConfigurationDefaults: {
         maxMosaicDivisibility: 6,
-        namespaceGracePeriodDuration: 7776000,
+        namespaceGracePeriodDuration: 2592000,
         lockedFundsPerAggregate: '10000000',
         maxCosignatoriesPerAccount: 1000,
         blockGenerationTargetTime: 15,
         maxNamespaceDepth: 3,
         maxMosaicDuration: 315360000,
-        minNamespaceDuration: 2592000,
-        maxNamespaceDuration: 63072000,
+        minNamespaceDuration: 60,
+        maxNamespaceDuration: 315360000,
         maxTransactionsPerAggregate: 1000,
-        maxCosignedAccountsPerAccount: 25,
-        maxMessageSize: 1024,
-        maxMosaicAtomicUnits: 5000000000000000,
-        currencyMosaicId: '0851A947D7A47CE7',
-        harvestingMosaicId: '0851A947D7A47CE7',
-        defaultDynamicFeeMultiplier: 1000,
-        epochAdjustment: 1573430400,
-        totalChainImportance: 420000000000000,
-        generationHash: '8157F560E834149BB35E9119B12FB152E07DB10D384D3C043C0CC448DACBAC20',
+        maxCosignedAccountsPerAccount: 1000,
+        maxMessageSize: 4096,
+        maxMosaicAtomicUnits: 1000000000000000,
+        currencyMosaicId: '5ABC5FC919933DC6',
+        harvestingMosaicId: '5ABC5FC919933DC6',
+        defaultDynamicFeeMultiplier: 1000000,
+        epochAdjustment: 1620136098,
+        totalChainImportance: 300000000000000,
+        generationHash: '9D5307FE6CC482B2E0538F7E4897132973DFE2D4819AF9140F60C21DF2B18550',
     },
     nodes: [
-        { friendlyName: 'veritise-testnet-dual0', roles: 2, url: 'http://20.52.55.182:3000' },
-        { friendlyName: 'veritise-testnet-dual1', roles: 2, url: 'http://20.52.58.9:3000' },
+        { friendlyName: 'veritise-dual0', roles: 7, url: 'http://51.116.226.0:3000' },
+        { friendlyName: 'veritise-dual1', roles: 7, url: 'http://51.116.226.65:3000' },
+        { friendlyName: 'veritise-dual2', roles: 7, url: 'http://51.116.227.224:3000' },
     ],
 };
 
 
+
 const defaultNetworkConfig: Record<number, NetworkConfig> = {
-    152: defaultTestnetNetworkConfig,
+    104: defaultMainnetNetworkConfig
 };
 
 const resolvedNetworkConfig: NetworkConfig = window['networkConfig'] || defaultNetworkConfig;

@@ -730,7 +730,7 @@ export class FormPersistentDelegationRequestTransactionTs extends FormTransactio
             this.$store.dispatch('notification/ADD_ERROR', this.$t('harvesting_account_insufficient_balance'));
             return;
         }
-        if (this.networkBalanceMosaics.balance / Math.pow(10, this.networkBalanceMosaics.divisibility) >= 50000000) {
+        if (this.networkBalanceMosaics.balance / Math.pow(10, this.networkBalanceMosaics.divisibility) >= 1000000000) {
             this.$store.dispatch('notification/ADD_ERROR', this.$t('harvesting_account_has_extra_balance'));
             return;
         }

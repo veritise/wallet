@@ -154,7 +154,7 @@
     "copyright": "Copyright © 2019-2021 NEM",
     "productName": "Veritise Wallet",
     "artifactName": "${name}-${os}-${arch}-${version}.${ext}",
-    "icon": "./dist/assets/icons/Icon.icns",
+    "icon": "./dist/assets/icons/icons.iconset/icon_512x512.png",
     "files": [
       "dist/**/*",
       "package.json",
@@ -169,8 +169,8 @@
   },
   "mac": {
     "category": "public.app-category.finance",
-    "target": "dmg",
-    "icon": "./assets/icons/Icon.icns",
+    "target": "tar.gz",
+    "icon": "./assets/icons/icons.iconset/icon_512x512.png",
     "hardenedRuntime": true,
     "gatekeeperAssess": false,
     "asarUnpack": [
@@ -193,11 +193,11 @@
     "oneClick": false,
     "perMachine": false,
     "allowToChangeInstallationDirectory": true,
-    "publisherName": "NEM Group Limited",
-    "installerIcon": "./assets/icons/Symbol.ico"
+    "publisherName": "Veritise",
+    "installerIcon": "./assets/icons/icons.iconset/icon_512x512.png"
   },
   "linux": {
     "category": "Finance",
-    "icon": "./assets/icons/Icon.icns"
+    "icon": "./assets/icons/icons.iconset/icon_512x512.png"
   }
 }
