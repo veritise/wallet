@@ -24,6 +24,8 @@ Aggregate several simple, token or namespace transactions to conveniently merge 
 ### News
 Get the latest cryptocurrency news and articles, conveniently displayed in the News section.
 ***
+
+
 ## Installation
 
 Veritise Wallet is available for Mac, Windows, Linux, and as a web application.
@@ -34,6 +36,130 @@ Veritise Wallet is available for Mac, Windows, Linux, and as a web application.
 
 3. Create a profile. Remember to save the mnemonic somewhere safe (offline).
 ***
+
+## Enabling Staking
+
+ Share your account’s importance securely with a node and get rewarded.
+
+### Introduction
+Delegated staking enables accounts to receive rewards from creating new blocks without running a node. At the same time, it allows nodes to benefit from an account’s (possibly higher) importance score.
+
+### Note
+
+Node owners have access to the node’s configuration so it’s more convenient for them to use Remote staking instead.
+
+It is thus much more convenient to use Veritise’s Desktop Wallet as shown in this guide.
+
+The process requires little more than selecting the desired node and sending a staking request.
+
+### Prerequisites
+Before you can activate delegated staking using the  Veritise's Desktop Wallet, you need the following items:
+
+1. An up-to-date Desktop Wallet. Download the latest version from the releases page.
+
+2. An account that will receive the staking fees. It must have:
+
+3. Minimum 10,000 veritise.currency token, maximum 100,000,000,  to be eligible and then some more to pay for transaction fees.
+
+4. An importance score greater than zero. Keep in mind that this score is calculated every 3-4h.
+
+### Guide
+1. **Select the staking option in the menu on the left. You should see the staking screen:**
+
+<img src="_images/1.png" alt="1">
+
+
+<em>Note: that the staking status is 🔴 INACTIVE.</em>
+
+2. **Click on the “Node Url” box to see a list of nodes currently connected to the network.**
+
+---
+**NOTE**
+
+<em>
+Only nodes which act both as Peer and API nodes are shown on this list, but you can still request staking from pure Peer nodes by manually writing their URL in the box. In this case, though, you will also need to provide the node’s transport public key.
+
+This key must be provided by the node owner. If you have instantiated the node using veritise-node, you can find this key in the addresses.yml file.
+
+Keep in mind, though, that when delegating staking to a non-API node the staking Status indicator will not work.
+</em>
+
+---
+
+3. **Select a node from the list and click on the “Link all keys” button** (You will probably need to scroll down past the “Keys Info” section).
+
+ You will be asked to sign an Aggregate Transaction:
+
+<img src="_images/3.png" alt="3">
+
+This aggregate transaction registers 3 different keys to your account which are needed for staking.
+
+4. **Enter your password and click “Confirm”.**
+
+
+
+The Desktop Wallet will then sign the transaction and announce it to the network. After a little while (shouldn’t take longer than 30 seconds), the screen should update:
+
+<img src="_images/2.png" alt="2">
+
+You can see that the staking status has changed to 🟡 KEYS LINKED and the different keys appear in the form.
+
+All that is left now is to send a Persistent Delegation Request Transaction which is the actual request to the node.
+
+5. **Click on the “Request Staking” button.**
+
+Your password is needed again to encrypt the persistent delegation message sent to the node:
+
+<img src="_images/4.png" alt="4">
+
+6. **Enter your password and click “Confirm”.**
+
+Your password is needed one last time to sign and announce the persistent delegation request:
+
+<img src="_images/6.png" alt="6">
+
+7. **Enter your password and click “Confirm”** (again).
+
+* Once you receive the confirmation message (shouldn’t take longer than 30 seconds), the staking status should change to 🟡 ACTIVATION IN PROGRESS
+
+* At this point it is up to the node to accept the request and add your account as a staker. When this happens, the staking status will change to 🟢 ACTIVE
+
+Delegated staking is now enabled and you should start collecting fees, at a rate proportional to your node’s importance score
+
+---
+**NOTE**
+
+<em>
+When requesting delegation through a Persistent Delegation Request Transaction instead of directly configuring the node, whether the node enables delegated staking depends entirely on the node and not on the network. It is entirely up to the node to comply with the request or even to lie about its state and provide a misleading staking status indicator.
+
+Therefore, there is no reliable way to know if your account has become a staker or not besides waiting to see if your account starts receiving staking fees.
+
+You can find more details about this process in the manual version of this guide.
+</em>
+
+---
+
+
+Status  | Meaning
+------------- | -------------
+🔴 INACTIVE  | Some keys are missing. Go to step 2.
+🟡 KEYS LINKED  | Keys are present but the staking delegation request has not been sent. Go to step 5.
+🟡 IN PROGRESS | The staking delegation request has been sent but the node has not acknowledged it yet. It might take a few minutes, or it might never happen. There is not much you can do at this point, except trying a different node.
+🟢 ACTIVE | Staking is enabled. Staked blocks and their fees should start arriving, depending on your account’s importance.
+
+---
+**NOTE**
+
+<em>
+Accounts with higher importance are selected more often to perform staking. Even if you successfully register as a delegated staker with a node, you will not stake any block (nor receive any fees) unless your importance score is high enough.
+
+Importance score calculation does not happen continuously. By default, account importance scores are recalculated every 720 blocks (about every 3-4 hours).
+
+Finally, as explained in the note above, announcing a staking Delegation request does not guarantee being added as a delegated staker. Nodes are free to comply with the request or even to lie about its status.
+</em>
+
+---
+
 ## Building instructions (web version)
 
 ### Recomended
@@ -140,9 +266,6 @@ mv dist/* /var/www/html
 ## Main changes
 * Changed news source (RSS channel) to cryptonews.com (https://cryptonews.com/news/feed) for more relevant news articles.
 * Altered UI elements (colors, text, icons) for a more appealing, consistent and coherent appearance.
-* Changed some terminology:
-	* Mosaics       -> Tokens
-	* Harvesting    -> Staking
 * Veritise-paper-wallets node module has been added to enhance the design of exported PDF paper wallet (when making a backup of accounts or mnemonic phrases). The templates of paper wallets are .PDF files, encoded in Base64 and stored in encodedBasePdf.js and encodedBasePrivateKeyPdf.js files in /modules/veritise-paper-wallets/resources.
 ***
 ### Known issues
