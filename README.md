@@ -71,7 +71,7 @@ Before you can activate delegated staking using the  Veritise's Desktop Wallet, 
 
 <em>Note: that the staking status is 🔴 INACTIVE.</em>
 
-2. **Click on the “Node Url” box to see a list of nodes currently connected to the network.**
+2. **Click on the “Node URL” box to see a list of nodes currently connected to the network.**
 
 ---
 **NOTE**
@@ -129,13 +129,11 @@ Delegated staking is now enabled and you should start collecting fees, at a rate
 ---
 **NOTE**
 
-<em>
+
 When requesting delegation through a Persistent Delegation Request Transaction instead of directly configuring the node, whether the node enables delegated staking depends entirely on the node and not on the network. It is entirely up to the node to comply with the request or even to lie about its state and provide a misleading staking status indicator.
 
 Therefore, there is no reliable way to know if your account has become a staker or not besides waiting to see if your account starts receiving staking fees.
 
-You can find more details about this process in the manual version of this guide.
-</em>
 
 ---
 
@@ -150,13 +148,13 @@ Status  | Meaning
 ---
 **NOTE**
 
-<em>
+
 Accounts with higher importance are selected more often to perform staking. Even if you successfully register as a delegated staker with a node, you will not stake any block (nor receive any fees) unless your importance score is high enough.
 
 Importance score calculation does not happen continuously. By default, account importance scores are recalculated every 720 blocks (about every 3-4 hours).
 
 Finally, as explained in the note above, announcing a staking Delegation request does not guarantee being added as a delegated staker. Nodes are free to comply with the request or even to lie about its status.
-</em>
+
 
 ---
 
