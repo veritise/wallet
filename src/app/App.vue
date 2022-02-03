@@ -2,7 +2,15 @@
     <div id="app" class="mac">
         <span v-if="web" class="web-warning-panel">{{ $t('web_wallet_warning') }}</span>
         <div class="version-panel">
-            {{ $t('version') }}: <b>{{ packageVersion }}</b>
+            <span>
+                <a style="color: white; margin-right: 20px;" onmouseover="this.style.color='#2d8cf0';" onmouseout="this.style.color='white';" href="#/terms">{{ $t('terms_and_conditions') }}</a>
+            </span>
+            <span>
+                <a style="color: white; margin-right: 20px;" onmouseover="this.style.color='#2d8cf0';" onmouseout="this.style.color='white';" href="#/privacy">{{ $t('privacy_policy') }}</a>
+            </span>
+            <span>
+                {{ $t('version') }}: <b>{{ packageVersion }}</b>
+            </span>
         </div>
         <router-view />
         <DisabledUiOverlay />

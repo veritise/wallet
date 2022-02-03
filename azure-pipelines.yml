@@ -1,5 +1,6 @@
 trigger:
-- qa
+- master
+- dev
 
 pool:
   vmImage: ubuntu-latest
@@ -34,12 +35,13 @@ steps:
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
     tags: |
-      qa-$(GIT_COMMIT)-$(Build.BuildId)
+      $(GIT_COMMIT)-$(Build.BuildId)
+      latest
 
 - task: CmdLine@2
   displayName: 'Replace kubernetes image tag'
   inputs:
-    script: 'sed -i ''s/:latest/:qa-$(GIT_COMMIT)-$(Build.BuildId)/g'' deployment.yml'
+    script: 'sed -i ''s/:latest/:$(GIT_COMMIT)-$(Build.BuildId)/g'' deployment.yml'
     workingDirectory: 'k8s'
 
 
@@ -47,6 +49,6 @@ steps:
   displayName: 'Pusblish artifacts'
   inputs:
     PathtoPublish: 'k8s/deployment.yml'
-    ArtifactName: 'drop-qa'
+    ArtifactName: 'drop'
     publishLocation: 'Container'
 

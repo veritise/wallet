@@ -14,7 +14,6 @@
                         <div class="banner-image">
                         </div>
                         <div class="login-card radius">
-                            <div class="img-box" />
                             <p class="login-title">
                                 {{ $t('login_to_symbol_account') }}
                             </p>
@@ -45,73 +44,71 @@
                                                             }}
                                                         </span>
                                                     </div>
-                                                    <Option v-for="(profile, index) in pair.profiles"
-                                                            :key="`${profile.profileName}${index}`"
-                                                            :value="profile.profileName"
-                                                            :label="profile.profileName">
-                                                        <span>{{ profile.profileName }}</span>
-                                                    </Option>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </AutoComplete>
-                                </ErrorTooltip>
-                            </ValidationProvider>
-                            <p class="input-password">
-                                {{ $t('password') }}
-                            </p>
-                            <ValidationProvider v-slot="{ errors }"
-                                                mode="passive"
-                                                vid="password"
-                                                :name="$t('password')"
-                                                rules="required|min:8">
-                                <ErrorTooltip field-name="password" :errors="errors">
-                                    <input v-model="formItems.password"
-                                           v-focus
-                                           :class="[!profilesClassifiedByNetworkType ? 'un_click' : '']"
-                                           :placeholder="$t('please_enter_your_account_password')"
-                                           type="password"
-                                           :disabled="!profilesClassifiedByNetworkType || performingLogin" />
-                                </ErrorTooltip>
-                            </ValidationProvider>
+                                        <Option v-for="(profile, index) in pair.profiles"
+                                                :key="`${profile.profileName}${index}`"
+                                                :value="profile.profileName"
+                                                :label="profile.profileName">
+                                            <span>{{ profile.profileName }}</span>
+                                        </Option>
+                        </div>
+                    </div>
+    </div>
+    </AutoComplete>
+    </ErrorTooltip>
+    </ValidationProvider>
+    <p class="input-password">
+        {{ $t('password') }}
+    </p>
+    <ValidationProvider v-slot="{ errors }"
+                        mode="passive"
+                        vid="password"
+                        :name="$t('password')"
+                        rules="required|min:8">
+        <ErrorTooltip field-name="password" :errors="errors">
+            <input v-model="formItems.password"
+                   v-focus
+                   :class="[!profilesClassifiedByNetworkType ? 'un_click' : '']"
+                   :placeholder="$t('please_enter_your_account_password')"
+                   type="password"
+                   :disabled="!profilesClassifiedByNetworkType || performingLogin" />
+        </ErrorTooltip>
+    </ValidationProvider>
 
-                            <div class="password-tip">
-                                <span class="prompt pointer" @click="formItems.hasHint = !formItems.hasHint">
-                                    {{
-                                    $t('password_hint')
-                                    }}
-                                </span>
-                                <span class="pointer create-profile"
-                                      :class="{ disabled: performingLogin }"
-                                      @click="
+    <div class="password-tip">
+        <span v-if="!!getPasswordHint().length"
+              class="prompt pointer"
+              @click="formItems.hasHint = !formItems.hasHint">{{ $t('password_hint') }}</span>
+        <span class="pointer create-profile"
+              :class="{ disabled: performingLogin }"
+              @click="
                                         if (!performingLogin) {
                                             $router.push({
                                                 name: 'profiles.importProfile.importStrategy',
                                             });
                                         }
                                     ">
-                                    {{ $t('create_a_new_account') }}?
-                                </span>
-                            </div>
-                            <div v-if="formItems.hasHint && !!getPasswordHint().length" class="hint">
-                                {{ $t('password_hint') }}: {{ getPasswordHint() }}
-                            </div>
-                            <Button v-if="profilesClassifiedByNetworkType"
-                                    class="pointer button"
-                                    :loading="performingLogin"
-                                    html-type="submit"
-                                    @click.stop="handleSubmit(submit)">
-                                {{ $t('login') }}
-                            </Button>
-                            <div v-else class="pointer button" @click="$router.push({ name: 'profiles.importProfile.importStrategy' })">
-                                {{ $t('register') }}
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </ValidationObserver>
-            <span class="copyright_label">{{ $t('copyright') }}</span>
-        </div>
+            {{ $t('create_a_new_account') }}
+        </span>
+    </div>
+    <div v-if="formItems.hasHint && !!getPasswordHint().length" class="hint">
+        {{ $t('password_hint') }}: {{ getPasswordHint() }}
+    </div>
+    <Button v-if="profilesClassifiedByNetworkType"
+            class="pointer button"
+            :loading="performingLogin"
+            html-type="submit"
+            @click.stop="handleSubmit(submit)">
+        {{ $t('login') }}
+    </Button>
+    <div v-else class="pointer button" @click="$router.push({ name: 'profiles.importProfile.importStrategy' })">
+        {{ $t('register') }}
+    </div>
+    </div>
+    </div>
+    </form>
+    </ValidationObserver>
+    <span class="copyright_label">{{ $t('copyright') }}</span>
+    </div>
 </template>
 
 <script lang="ts">

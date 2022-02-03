@@ -73,10 +73,9 @@
             <p class="paragraph">
                 If you would like to: access, correct, amend or delete any personal information we have about you, register a complaint, or
                 simply want more information contact our Privacy Compliance Officer at
-                <a href="mailto:support@nem.group">
-                    <b class="link">support@nem.group</b>
+                <a href="mailto:info@veritise.com">
+                    <b class="link">info@veritise.com</b>
                 </a>
-                or by mail at NEM Group Limited. NEM Group Limited. Suite 7, Hadfield House Library Street, Gibraltar.
             </p>
         </div>
         <button @click="backToLogin">{{ $t('back') }}</button>

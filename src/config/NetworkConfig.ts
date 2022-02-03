@@ -51,8 +51,8 @@ export interface NetworkConfig {
 }
 
 export const defaultMainnetNetworkConfig: NetworkConfig = {
-    explorerUrl: 'http://20.79.89.9/',
-    faucetUrl: 'http://20.79.115.0/',
+    explorerUrl: 'https://explorer.veritise.com/',
+    faucetUrl: 'https://faucet.veritise.com/',
     defaultNetworkType: 104,
     networkConfigurationDefaults: {
         maxMosaicDivisibility: 6,
@@ -76,16 +76,18 @@ export const defaultMainnetNetworkConfig: NetworkConfig = {
         generationHash: '9D5307FE6CC482B2E0538F7E4897132973DFE2D4819AF9140F60C21DF2B18550',
     },
     nodes: [
-        { friendlyName: 'veritise-dual0', roles: 7, url: 'http://51.116.226.0:3000' },
-        { friendlyName: 'veritise-dual1', roles: 7, url: 'http://51.116.226.65:3000' },
-        { friendlyName: 'veritise-dual2', roles: 7, url: 'http://51.116.227.224:3000' },
+        { friendlyName: 'veritise-dual2', roles: 7, url: 'http://dual2.veritise.superhow.net:3000' },
+        { friendlyName: 'veritise-dual1', roles: 7, url: 'http://dual1.veritise.superhow.net:3000' },
+        { friendlyName: 'veritise-dual3', roles: 7, url: 'http://dual3.veritise.superhow.net:3000' },
+        { friendlyName: 'veritise-peer1', roles: 5, url: 'http://51.116.117.9:3000' },
+        { friendlyName: 'veritise-peer2', roles: 5, url: 'http://51.116.117.80:3000' },
+        { friendlyName: 'veritise-peer3', roles: 5, url: 'http://51.116.117.7:3000' },
+        { friendlyName: 'veritise-peer4', roles: 5, url: 'http://20.52.242.29:3000' },
     ],
 };
 
-
-
 const defaultNetworkConfig: Record<number, NetworkConfig> = {
-    104: defaultMainnetNetworkConfig
+    104: defaultMainnetNetworkConfig,
 };
 
 const resolvedNetworkConfig: NetworkConfig = window['networkConfig'] || defaultNetworkConfig;

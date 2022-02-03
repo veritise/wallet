@@ -19,7 +19,7 @@ export default class ModalFormProfileUnlock extends ModalFormProfileUnlockTs {}
 <style lang="less" scoped>
     .text {
         font-size: 18px !important;
-        color: #004f99;
+        color: #2d8cf0;
         margin-left: 50px;
     }
 </style>
