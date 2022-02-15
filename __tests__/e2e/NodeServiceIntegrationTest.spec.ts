@@ -43,7 +43,7 @@ const nodeRepository = instance(mockNodeRepository);
 
 when(mockRepoFactory.createNodeRepository()).thenReturn(nodeRepository);
 when(mockRepoFactory.getEpochAdjustment()).thenReturn(of(1573430400));
-when(mockRepoFactory.getNetworkType()).thenReturn(of(NetworkType.MIJIN_TEST));
+when(mockRepoFactory.getNetworkType()).thenReturn(of(NetworkType.TEST_NET));
 const repositoryFactory = instance(mockRepoFactory);
 
 const fakeProfile: ProfileModel = {

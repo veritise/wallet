@@ -37,8 +37,6 @@
                 <div class="value">
                     <span v-if="isNetworkType(types.MAIN_NET)">MAINNET</span>
                     <span v-else-if="isNetworkType(types.TEST_NET)">TESTNET</span>
-                    <span v-else-if="isNetworkType(types.MIJIN)">MIJIN</span>
-                    <span v-else-if="isNetworkType(types.MIJIN_TEST)">MIJIN_TEST</span>
                 </div>
             </div>
 

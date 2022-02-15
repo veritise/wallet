@@ -1,8 +1,10 @@
 ﻿<img src="https://veritise.com/wp-content/uploads/2021/05/cropped-Veritise-Logo-Blue2-BGBlue-PNG.png" alt="Veritise" width="200" height="200">
 
-# Veritise Wallet v1.0.2
+# Veritise Wallet v1.1.7
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+> <b> Important: Veritise wallet compatable with 2022-02-15 snapshot</b>
 
 Cross-platform client to manage accounts, tokens, namespaces, and issue transactions.
 ***

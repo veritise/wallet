@@ -31,7 +31,7 @@ describe('services/MosaicData', () => {
                 new UInt64([1, 0]), // height
                 PublicAccount.createFromPublicKey(
                     'B4F12E7C9F6946091E2CB8B6D3A12B50D17CCBBF646386EA27CE2946A7423DCF',
-                    NetworkType.MIJIN_TEST,
+                    NetworkType.TEST_NET,
                 ).address,
                 1, // revision
                 MosaicFlags.create(true, true, true),
