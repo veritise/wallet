@@ -112,16 +112,16 @@ export default class MaxFeeAndSubmit extends Vue {
         return false;
     }
     get averageFee() {
-        return (this.transactionFees.minFeeMultiplier + this.transactionFees.averageFeeMultiplier * 0.65) * this.size * 0.1;
+        return (this.transactionFees.minFeeMultiplier + this.transactionFees.averageFeeMultiplier * 0.65) * this.size * 0.01;
     }
     get slowFee() {
-        return (this.transactionFees.minFeeMultiplier + this.transactionFees.averageFeeMultiplier * 0.35) * this.size * 0.1;
+        return (this.transactionFees.minFeeMultiplier + this.transactionFees.averageFeeMultiplier * 0.35) * this.size * 0.01;
     }
     get slowestFee() {
-        return this.transactionFees.minFeeMultiplier * this.size * 0.1;
+        return this.transactionFees.minFeeMultiplier * this.size * 0.01;
     }
     get fastFee() {
-        return this.transactionFees.averageFeeMultiplier * this.size * 0.1;
+        return this.transactionFees.averageFeeMultiplier * this.size * 0.01;
     }
 }
 </script>
