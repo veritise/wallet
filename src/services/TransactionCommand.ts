@@ -196,7 +196,7 @@ export class TransactionCommand {
         // average
         if (transaction.maxFee.compact() === 10) {
             const fees = this.transactionFees.minFeeMultiplier + this.transactionFees.averageFeeMultiplier * 0.65;
-            return fees || this.networkConfiguration.defaultDynamicFeeMultiplier;
+            return fees * 0.01 || this.networkConfiguration.defaultDynamicFeeMultiplier;
         }
         // fast
         if (transaction.maxFee.compact() === 20) {
@@ -204,17 +204,18 @@ export class TransactionCommand {
                 this.transactionFees.averageFeeMultiplier < this.transactionFees.minFeeMultiplier
                     ? this.transactionFees.minFeeMultiplier
                     : this.transactionFees.averageFeeMultiplier;
-            return fees || this.networkConfiguration.defaultDynamicFeeMultiplier;
+            return fees * 0.01 || this.networkConfiguration.defaultDynamicFeeMultiplier;
         }
         // slowest
         if (transaction.maxFee.compact() === 1) {
             const fees = this.transactionFees.minFeeMultiplier;
-            return fees || this.networkConfiguration.defaultDynamicFeeMultiplier;
+            //return fees * 0.1 || this.networkConfiguration.defaultDynamicFeeMultiplier;
+            return 0
         }
         // slow
         if (transaction.maxFee.compact() === 5) {
             const fees = this.transactionFees.minFeeMultiplier + this.transactionFees.averageFeeMultiplier * 0.35;
-            return fees || this.networkConfiguration.defaultDynamicFeeMultiplier;
+            return fees * 0.01 || this.networkConfiguration.defaultDynamicFeeMultiplier;
         }
         return undefined;
     }
