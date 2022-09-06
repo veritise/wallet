@@ -76,9 +76,9 @@ export const defaultMainnetNetworkConfig: NetworkConfig = {
         generationHash: 'D12C8B5FA198D053115DDBBF369C1BEBEA89CD3E103494A04248FA4131D50B3E',
     },
     nodes: [
-        { friendlyName: 'veritise-dual1', roles: 7, url: 'http://dual1-mainnet.veritise.superhow.net:3000' },
-        { friendlyName: 'veritise-dual2', roles: 7, url: 'http://dual2-mainnet.veritise.superhow.net:3000' },
-        { friendlyName: 'veritise-dual3', roles: 7, url: 'http://dual3-mainnet.veritise.superhow.net:3000' }
+        { friendlyName: 'veritise-dual1', roles: 7, url: 'http://dual1-mainnet.chain.veritise.com:3000' },
+        { friendlyName: 'veritise-dual2', roles: 7, url: 'http://dual2-mainnet.chain.veritise.com:3000' },
+        { friendlyName: 'veritise-dual3', roles: 7, url: 'http://dual3-mainnet.chain.veritise.com:3000' }
     ],
 };
 
